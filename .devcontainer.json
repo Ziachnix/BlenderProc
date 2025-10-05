@@ -1,0 +1,34 @@
+{
+  "name": "Blenderproc Devcontainer",
+"build": {
+    "dockerfile": "Containerfile",
+    "context": "."
+},
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "mhutchie.git-graph",
+        "ms-python.python",
+        "ms-python.pylint"
+      ]
+    }
+  },
+  "shutdownAction": "stopContainer",
+  "workspaceMount": "source=${localWorkspaceFolder}/,target=/code,type=bind",
+  "workspaceFolder": "/code",
+  "containerEnv": {
+    "DISPLAY": "${localEnv:DISPLAY}",
+    "QT_X11_NO_MITSHM": "1"
+  },
+  "runArgs": [
+    "--name",
+    "blenderproc-devcontainer",
+    "--ipc",
+    "host"
+    ,"--device",
+    "/dev/dri" 
+  ],
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {}
+  }
+}
