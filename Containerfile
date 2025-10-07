@@ -19,6 +19,8 @@ RUN apt-get update \
   libdecor-0-0 \
   libegl1 \
   libglib2.0-0 \
-  libglvnd0 && \
+  libglvnd0 \
+  libwayland-egl \
+  libwayland-cursor0 && \
   python3 -m pip config set global.break-system-packages true \
   && rm -rf /var/lib/{apt,dpkg,cache,log}
